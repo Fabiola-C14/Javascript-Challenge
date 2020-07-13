@@ -16,3 +16,6 @@ country
 shape
 
 In addition, the sighting table can be filtered by entering a specific date.
+
+![](static/images/image_1.PNG)
+![](static/images/image_2.PNG)
