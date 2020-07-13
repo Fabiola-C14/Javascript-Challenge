@@ -1,6 +1,5 @@
 # JavaScript and DOM Manipulation
 
-## https://fabiola-c14.github.io/Javascript-Challenge/
 
 ## Background
 
@@ -17,5 +16,9 @@ shape
 
 In addition, the sighting table can be filtered by entering a specific date.
 
+## Link: https://fabiola-c14.github.io/Javascript-Challenge/
+
 ![](static/images/image_1.PNG)
+
+
 ![](static/images/image_2.PNG)
