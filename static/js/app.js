@@ -1,9 +1,11 @@
 //from data.js
 var tableData = data;
 
-console.log(tableData);
+//console.log(tableData);
 
 //Full table on landing page
+
+//Select tbody
 var tbody=d3.select('tbody');
 
 tableData.forEach(sightingData);
@@ -16,12 +18,14 @@ function sightingData(SightingReport) {
     });
 }
 
+//Select Filter Button
 var filterBtn=d3.select('#filter-btn');
 
 var resetBtn=d3.select('.reset');
 
 filterBtn.on('click', runEnter);
 
+//Select data from input value
 function runEnter() {
     d3.event.preventDefault();
     tbody.html('');
@@ -36,6 +40,7 @@ function runEnter() {
     });
 };
 
+//Reset data and update table
 resetBtn.on('click', function() {
     resetForm();
     updateTable(tableData);
@@ -45,9 +50,11 @@ resetBtn.on('click', function() {
 
 var filterOption = {};
 
+//Create filter to select data from dropdown
 var filterDropdown=d3.select('.dropdown');
 
 var filteredData=tableData;
+//Filter and create dropdown to loop through the data
 
 var keyAndFields=[{
          fieldName: 'Date',
@@ -67,6 +74,7 @@ var keyAndFields=[{
      }
  ];
 
+ //Populate each of the five dropdpwns in HTML
  Object.entries(keyAndFields).forEach(([key,value]) => selectAndPopulate(value.fieldName, value.tableKey));
 
  function selectAndPopulate(fieldName, tableKey) {
@@ -75,7 +83,7 @@ var keyAndFields=[{
      optionsArray.unshift('No filter');
      optionsArray.forEach(option => dropdown.append('option').attr('value', option).text(option));
  };
-
+//Update the filtereddata
  function updateFilteredData(queryField, queryValue) {
      filteredData=tableData;
      filterOption[queryField]=queryValue;
@@ -89,12 +97,12 @@ var keyAndFields=[{
              });
      });
  }
-
+//Filter data on click submission
  filterDropdown.on("click", function() {
      d3.event.preventDefault();
      updateTBody(filteredData);
  });
-
+//Display the table with the filtered data
  function updateTBody(filteredData) {
      tbody.text ('');
      filteredData.forEach(dataselection => {
